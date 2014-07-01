@@ -57,13 +57,14 @@ public class Worker extends Thread {
 
 
 	private void pingCoinbase() throws Exception{
-		String buypricedata = URLConnectionReader.HTTPRequest("https://coinbase.com/api/v1/prices/buy") ;
+		
+		String buypricedata = Coinbase.getHttp("https://coinbase.com/api/v1/prices/buy", null) ;
 		JsonObject buypricejson = JsonObject.readFrom( buypricedata );
 		String buypricetext = buypricejson.get( "amount" ).asString();
 		float buyprice = Float.parseFloat( buypricetext );
 		buyprices.add(buyprice);
 		
-		String sellpricedata = URLConnectionReader.HTTPRequest("https://coinbase.com/api/v1/prices/sell") ;
+		String sellpricedata = Coinbase.getHttp("https://coinbase.com/api/v1/prices/sell", null) ;
 		JsonObject sellpricejson = JsonObject.readFrom( sellpricedata );
 		String sellpricetext = sellpricejson.get( "amount" ).asString();
 		float sellprice = Float.parseFloat( sellpricetext );

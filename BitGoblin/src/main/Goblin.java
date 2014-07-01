@@ -9,9 +9,7 @@ public class Goblin {
 	static BufferedReader br;
 	
 	
-	static String coinbase_key;
-	
-	static String coinbase_secret;
+
 	
 	public static void main(String args[]){
 		
@@ -67,16 +65,16 @@ public class Goblin {
 
 	private static void init() throws Exception  {
 
-		while(coinbase_key==null || coinbase_key.length() != 16){
+		while(Coinbase.API_KEY==null || Coinbase.API_KEY.length() != 16){
 		System.out.println("Please enter your coinbase API key:");
 		 
-		 coinbase_key = br.readLine();
+		Coinbase.API_KEY = br.readLine();
 		 }
 		 
-		while(coinbase_secret==null || coinbase_secret.length() != 32){
+		while(Coinbase.API_SECRET==null || Coinbase.API_SECRET.length() != 32){
 		System.out.println("Please enter your coinbase API secret:");
 		
-		 coinbase_secret = br.readLine();
+		Coinbase.API_SECRET = br.readLine();
 		}
 		
 		
