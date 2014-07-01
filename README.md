@@ -1,7 +1,7 @@
 BitGoblin
 =========
 
-A java bot that can automatically buy / sell based on price histories that uses the Coinbase API.  The worker thread executes every 60 seconds.  Lightweight enough to run on a RaspberryPI.
+A java bot that can automatically buy / sell based on price histories with the Coinbase API.  The worker thread executes every 60 seconds.  Specifically designed run in the terminal of a RaspberryPI.
 
 
 Coinbase API reference: https://coinbase.com/api/doc
