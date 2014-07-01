@@ -1,0 +1,4 @@
+bitgoblin
+=========
+
+Coinbase trading bot
