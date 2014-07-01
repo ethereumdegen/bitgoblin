@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import main.gui.Menu;
+
 public class Goblin {
 
 	static BufferedReader br;
@@ -57,10 +59,15 @@ public class Goblin {
 		
 		if(input != null)
 		{
-		System.out.println("You entered "+ input);
+			receiveUserInput(input);
 		}
+				
+	}
+
+	private static void receiveUserInput(String input) {
+		menu.receiveUserInput(input);
 		
-		
+		System.out.println(menu);		
 	}
 
 	private static void init() throws Exception  {
@@ -79,6 +86,13 @@ public class Goblin {
 		
 		
 		
+	}
+
+	static Menu menu = new Menu();
+	
+	public static Menu getMenu() {
+		
+		return menu;
 	}
 	
 	

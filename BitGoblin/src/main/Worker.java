@@ -42,21 +42,30 @@ public class Worker extends Thread {
 		
 		
 		try {
-			pingCoinbase();
+			addNewPrices();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 				
+		try {
+			performTrades();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		System.out.println( "The current buy price of bitcoin is " + buyprices.getLatest()  );
-		System.out.println( "The current sell price of bitcoin is " + sellprices.getLatest()  );
 		
 		
 	}
 
 
-	private void pingCoinbase() throws Exception{
+	
+	private void performTrades() {
+		
+		
+	}
+
+
+	private void addNewPrices() throws Exception{
 		
 		String buypricedata = Coinbase.getHttp("https://coinbase.com/api/v1/prices/buy", null) ;
 		JsonObject buypricejson = JsonObject.readFrom( buypricedata );
@@ -69,6 +78,9 @@ public class Worker extends Thread {
 		String sellpricetext = sellpricejson.get( "amount" ).asString();
 		float sellprice = Float.parseFloat( sellpricetext );
 		sellprices.add(sellprice);
+		
+		
+		
 	}
 	
 	
