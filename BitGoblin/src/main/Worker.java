@@ -1,7 +1,4 @@
 package main;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.eclipsesource.json.JsonObject;
 
 
@@ -26,7 +23,7 @@ public class Worker extends Thread {
 			try {
 				update();
 				
-				Thread.sleep(30*1000);
+				Thread.sleep(60*1000);
 			} catch (Exception e) {				
 				e.printStackTrace();
 			}
@@ -42,7 +39,7 @@ public class Worker extends Thread {
 
 	private void update()  {
 		
-		System.out.println("running script");
+		
 		
 		try {
 			pingCoinbase();
